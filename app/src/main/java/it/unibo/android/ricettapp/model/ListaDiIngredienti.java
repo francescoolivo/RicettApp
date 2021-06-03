@@ -46,7 +46,7 @@ public class ListaDiIngredienti implements IContenitoreIngredienti{
     }
 
     @Override
-    public Collection<Ingrediente> getIngredienti() {
+    public Collection<IIngrediente> getIngredienti() {
         return new ArrayList<>(this.ingredienti);
     }
 }

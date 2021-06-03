@@ -4,6 +4,6 @@ import java.util.Collection;
 
 public interface IContenitoreIngredienti {
 
-    public Collection<Ingrediente> getIngredienti();
+    public Collection<IIngrediente> getIngredienti();
 
 }

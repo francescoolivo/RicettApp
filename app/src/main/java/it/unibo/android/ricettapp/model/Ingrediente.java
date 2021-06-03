@@ -2,7 +2,7 @@ package it.unibo.android.ricettapp.model;
 
 import java.io.File;
 
-public class Ingrediente implements IParametroRicercaIngrediente, IParametroRicercaRicetta {
+public class Ingrediente implements IParametroRicercaIngrediente, IParametroRicercaRicetta, IIngrediente {
 
     private long id;
     private String nome;

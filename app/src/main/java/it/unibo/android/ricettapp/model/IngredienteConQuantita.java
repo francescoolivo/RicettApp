@@ -13,10 +13,6 @@ public class IngredienteConQuantita extends IngredienteConUnita {
         return quantita;
     }
 
-    public void setQuantita(float quantita) {
-        this.quantita = quantita;
-    }
-
     public boolean modificaQuantita(float newQuantita) {
         this.quantita = newQuantita;
         return true;

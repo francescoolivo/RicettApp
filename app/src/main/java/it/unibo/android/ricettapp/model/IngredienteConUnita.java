@@ -1,6 +1,6 @@
 package it.unibo.android.ricettapp.model;
 
-public class IngredienteConUnita {
+public class IngredienteConUnita implements IIngredienteConUnita {
 
     private Ingrediente ingrediente;
     private int calorie;
