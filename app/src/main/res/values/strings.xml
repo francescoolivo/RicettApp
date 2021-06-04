@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">RicettApp</string>
+    <string name="nome_ricetta">Nome ricetta</string>
+    <string name="descrizione_immagine">Immagine di prova</string>
+    <string name="nome_ingrediente">Nome ingrediente</string>
+    <string name="tipologia_ingrediente">Tipologia ingrediente</string>
+    <string-array name="months">
+    <item name="gennaio" type="integer">1</item>
+    <item name="febbraio" type="integer">2</item>
+    <item name="marzo" type="integer">3</item>
+    <item name="aprile" type="integer">4</item>
+    <item name="maggio" type="integer">5</item>
+    <item name="giugno" type="integer">6</item>
+    <item name="luglio" type="integer">7</item>
+    <item name="agosto" type="integer">8</item>
+    <item name="settembre" type="integer">9</item>
+    <item name="ottobre" type="integer">10</item>
+    <item name="novembre" type="integer">11</item>
+    <item name="dicembre" type="integer">12</item>
+    </string-array>
+
+
 </resources>
