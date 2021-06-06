@@ -11,16 +11,46 @@ public class Ricetta implements IParametroRicercaRicetta{
     private Date ultimaModifica;
     private File[] fotografie;
     private int tempoDiEsecuzione;
-    private int numeroDiPersone = 2;
+    private int numeroDiPersone;
+    private IngredienteConQuantita[] ingredienti;
+    private Passaggio[] passaggi;
+    private Tag[] tags;
 
-    public Ricetta(long id, String nome, String descrizione, Date ultimaModifica, File[] fotografie, int tempoDiEsecuzione, int numeroDiPersone) {
-        this.id = id;
+    public Ricetta(String nome, String descrizione, Date ultimaModifica, File[] fotografie, int tempoDiEsecuzione, int numeroDiPersone, IngredienteConQuantita[] ingredienti, Passaggio[] passaggi, Tag[] tags) {
+        this.id = System.currentTimeMillis();
         this.nome = nome;
         this.descrizione = descrizione;
         this.ultimaModifica = ultimaModifica;
         this.fotografie = fotografie;
         this.tempoDiEsecuzione = tempoDiEsecuzione;
         this.numeroDiPersone = numeroDiPersone;
+        this.ingredienti = ingredienti;
+        this.passaggi = passaggi;
+        this.tags = tags;
+    }
+
+    public Passaggio[] getPassaggi() {
+        return passaggi;
+    }
+
+    public void setPassaggi(Passaggio[] passaggi) {
+        this.passaggi = passaggi;
+    }
+
+    public void setIngredienti(IngredienteConQuantita[] ingredienti) {
+        this.ingredienti = ingredienti;
+    }
+
+    public Tag[] getTags() {
+        return tags.clone();
+    }
+
+    public void setTags(Tag[] tags) {
+        this.tags = tags;
+    }
+
+    public IngredienteConQuantita[] getIngredienti() {
+        return this.ingredienti.clone();
     }
 
     public long getId() { return id; }
@@ -52,11 +82,26 @@ public class Ricetta implements IParametroRicercaRicetta{
     public void setNumeroDiPersone(int numeroDiPersone) {this.numeroDiPersone = numeroDiPersone;}
 
     public int calcolaApportoCalorico(){
-       return -1;
+       int apportoTotale = 0;
+
+       for (IngredienteConQuantita ingr : ingredienti) {
+           apportoTotale += ingr.getQuantita()*ingr.getCalorie();
+        }
+
+       return apportoTotale / this.getNumeroDiPersone();
     }
 
     @Override
     public boolean matches(IParametroRicercaRicetta other) {
         return this.equals(other);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other instanceof Ricetta) {
+            return this.id == ((Ricetta) other).id;
+        } else {
+            return false;
+        }
     }
 }
