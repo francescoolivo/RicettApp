@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/nome_ricetta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/nome_ricetta" />
+
+    <EditText
+        android:id="@+id/descrizione_ricetta_ricetta"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="8dp"
+        android:text="@string/descrizione_ricetta" />
+
+
+    <ImageButton
+        android:id="@+id/camera_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_camera"
+        android:layout_margin="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Persone:"
+            android:layout_gravity="start"/>
+
+        <EditText
+            android:id="@+id/numero_persone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="4"
+            android:layout_gravity="end"/>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tempo:"
+            android:layout_gravity="start"/>
+
+        <EditText
+            android:id="@+id/tempo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="15"
+            android:ems="10"
+            android:inputType="number"
+            android:layout_gravity="end"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/unità_tempo"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text="@string/ingredienti"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="8dp"/>
+
+    <ListView
+        android:id="@+id/lista_ingredienti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/aggiungi_ingrediente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/aggiungi_ingrediente" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text="@string/passaggi"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="8dp"/>
+
+    <ListView
+        android:id="@+id/lista_passaggi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <EditText
+        android:id="@+id/aggiungi_passaggio_testo"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="8dp"
+        android:text="@string/descrizione_passaggio"/>
+
+
+    <ImageButton
+        android:id="@+id/aggiungi_passaggio_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_add" />
+
+
+
+    
+
+
+</LinearLayout>

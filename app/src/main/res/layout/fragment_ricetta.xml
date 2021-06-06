@@ -1,7 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_ricetta"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <!--<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">-->
+
+    <ImageView
+        android:id="@+id/immagine_ricetta"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        app:srcCompat="@drawable/tortellini" />
+
+    <TextView
+        android:id="@+id/nome_ricetta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/nome_ricetta"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/descrizione_ricetta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/descrizione_ricetta" />
+
+    <ListView
+        android:id="@+id/lista_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/titolo_ingredienti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/ingredienti"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <ListView
+        android:id="@+id/lista_ingredienti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/titolo_passaggi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/passaggi"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <ListView
+        android:id="@+id/lista_passaggi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--
+        </ScrollView>
+    -->
 </LinearLayout>
