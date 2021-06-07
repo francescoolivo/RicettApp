@@ -1,6 +1,6 @@
 package it.unibo.android.ricettapp.model;
 
-public class Tag implements IParametroRicercaIngrediente {
+public class Tag implements IParametroRicercaRicetta {
 
     private String nome;
 
@@ -17,7 +17,7 @@ public class Tag implements IParametroRicercaIngrediente {
     }
 
     @Override
-    public boolean matches(IParametroRicercaIngrediente other) {
+    public boolean matches(IParametroRicercaRicetta other) {
         if (other instanceof Tag) {
             return ((Tag) other).getNome().equals(this.getNome());
         } else {

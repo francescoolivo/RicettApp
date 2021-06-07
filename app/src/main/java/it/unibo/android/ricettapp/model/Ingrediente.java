@@ -4,19 +4,20 @@ import java.io.File;
 
 public class Ingrediente implements IParametroRicercaIngrediente, IParametroRicercaRicetta, IIngrediente {
 
-    private long id;
+    private final long id;
     private String nome;
     private File[] fotografie;
     private TipologiaIngrediente[] tipologie;
     private IngredienteConUnita[] unita;
     private Stagionalita stagionalita;
 
-    public Ingrediente(String nome, File[] fotografie, TipologiaIngrediente[] tipologie, IngredienteConUnita[] unita) {
+    public Ingrediente(String nome, File[] fotografie, TipologiaIngrediente[] tipologie, IngredienteConUnita[] unita, Stagionalita stagionalita) {
         this.id = System.currentTimeMillis();
         this.nome = nome;
         this.fotografie = fotografie;
         this.tipologie = tipologie;
         this.unita = unita;
+        this.stagionalita = stagionalita;
     }
 
     public long getId() {
@@ -66,15 +67,16 @@ public class Ingrediente implements IParametroRicercaIngrediente, IParametroRice
     @Override
     public boolean matches(IParametroRicercaIngrediente other) {
         if (other instanceof Ingrediente) {
-            if (((Ingrediente) other).getNome() == null) {
-                return this.getStagionalita().matches(((Ingrediente) other).getStagionalita());
-            } else {
-                if (((Ingrediente) other).getStagionalita() != null) {
-                    return this.getNome().equals(((Ingrediente) other).getNome());
-                } else {
-                    return false;
+            return this.equals(other);
+        } else if (other instanceof Stagionalita){
+            return this.getStagionalita().matches(other);
+        } else if (other instanceof TipologiaIngrediente) {
+            for (TipologiaIngrediente t : this.getTipologie()) {
+                if (t.matches(other)) {
+                    return true;
                 }
             }
+            return false;
         } else {
             return false;
         }

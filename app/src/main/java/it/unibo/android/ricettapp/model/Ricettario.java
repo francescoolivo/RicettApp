@@ -52,4 +52,8 @@ public class Ricettario {
             return true;
         }
     }
+
+    public boolean eliminaRicetta(Ricetta ricetta) {
+        return this.ricette.remove(ricetta);
+    }
 }

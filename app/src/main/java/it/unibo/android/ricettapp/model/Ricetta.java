@@ -16,11 +16,10 @@ public class Ricetta implements IParametroRicercaRicetta{
     private Passaggio[] passaggi;
     private Tag[] tags;
 
-    public Ricetta(String nome, String descrizione, Date ultimaModifica, File[] fotografie, int tempoDiEsecuzione, int numeroDiPersone, IngredienteConQuantita[] ingredienti, Passaggio[] passaggi, Tag[] tags) {
+    public Ricetta(String nome, String descrizione, File[] fotografie, int tempoDiEsecuzione, int numeroDiPersone, IngredienteConQuantita[] ingredienti, Passaggio[] passaggi, Tag[] tags) {
         this.id = System.currentTimeMillis();
         this.nome = nome;
         this.descrizione = descrizione;
-        this.ultimaModifica = ultimaModifica;
         this.fotografie = fotografie;
         this.tempoDiEsecuzione = tempoDiEsecuzione;
         this.numeroDiPersone = numeroDiPersone;
@@ -35,6 +34,7 @@ public class Ricetta implements IParametroRicercaRicetta{
 
     public void setPassaggi(Passaggio[] passaggi) {
         this.passaggi = passaggi;
+        aggiornaUltimaModifica();
     }
 
     public void setIngredienti(IngredienteConQuantita[] ingredienti) {
@@ -47,6 +47,7 @@ public class Ricetta implements IParametroRicercaRicetta{
 
     public void setTags(Tag[] tags) {
         this.tags = tags;
+        aggiornaUltimaModifica();
     }
 
     public IngredienteConQuantita[] getIngredienti() {
@@ -69,17 +70,15 @@ public class Ricetta implements IParametroRicercaRicetta{
 
     public void setId(long id) {this.id = id; }
 
-    public void setNome(String nome) {this.nome = nome; }
+    public void setNome(String nome) {this.nome = nome; aggiornaUltimaModifica();}
 
-    public void setDescrizione(String descrizione) {this.descrizione = descrizione; }
+    public void setDescrizione(String descrizione) {this.descrizione = descrizione; aggiornaUltimaModifica();}
 
-    public void setUltimaModifica(Date ultimaModifica) {this.ultimaModifica = ultimaModifica; }
+    public void setFotografie(File[] fotografie) {this.fotografie = fotografie; aggiornaUltimaModifica();}
 
-    public void setFotografie(File[] fotografie) {this.fotografie = fotografie; }
+    public void setTempoDiEsecuzione(int tempoDiEsecuzione) {this.tempoDiEsecuzione = tempoDiEsecuzione; aggiornaUltimaModifica();}
 
-    public void setTempoDiEsecuzione(int tempoDiEsecuzione) {this.tempoDiEsecuzione = tempoDiEsecuzione; }
-
-    public void setNumeroDiPersone(int numeroDiPersone) {this.numeroDiPersone = numeroDiPersone;}
+    public void setNumeroDiPersone(int numeroDiPersone) {this.numeroDiPersone = numeroDiPersone; aggiornaUltimaModifica();}
 
     public int calcolaApportoCalorico(){
        int apportoTotale = 0;
@@ -93,7 +92,25 @@ public class Ricetta implements IParametroRicercaRicetta{
 
     @Override
     public boolean matches(IParametroRicercaRicetta other) {
-        return this.equals(other);
+        if (other instanceof Ricetta) {
+            return this.equals(other);
+        } else if (other instanceof Tag) {
+            for (Tag t : this.getTags()) {
+                if (t.matches(other)) {
+                    return true;
+                }
+            }
+            return false;
+        } else if (other instanceof Ingrediente) {
+            for (IngredienteConQuantita i : this.getIngredienti()) {
+                if (i.matches(other)) {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -103,5 +120,8 @@ public class Ricetta implements IParametroRicercaRicetta{
         } else {
             return false;
         }
+    }
+    private void aggiornaUltimaModifica() {
+        this.ultimaModifica = new Date();
     }
 }

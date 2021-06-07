@@ -39,7 +39,7 @@ public class Stagionalita implements IParametroRicercaIngrediente {
     @Override
     public boolean matches(IParametroRicercaIngrediente other) {
         if (other instanceof Stagionalita) {
-            return ((Stagionalita) other).getInizio() >= this.getInizio() && ((Stagionalita) other).getFine() <= this.getFine();
+            return this.getInizio() >= ((Stagionalita) other).getInizio() && this.getFine() <= ((Stagionalita) other).getFine();
         } else {
             return false;
         }

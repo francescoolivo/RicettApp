@@ -1,4 +1,4 @@
 package it.unibo.android.ricettapp.model;
 
-public interface IIngrediente {
+public interface IIngrediente extends IParametroRicercaIngrediente, IParametroRicercaRicetta {
 }
