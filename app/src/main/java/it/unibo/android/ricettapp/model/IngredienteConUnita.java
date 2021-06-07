@@ -35,4 +35,14 @@ public class IngredienteConUnita implements IIngredienteConUnita {
     public void setUnita(UnitaDiMisura unita) {
         this.unita = unita;
     }
+
+    @Override
+    public boolean matches(IParametroRicercaIngrediente other) {
+        return false;
+    }
+
+    @Override
+    public boolean matches(IParametroRicercaRicetta other) {
+        return false;
+    }
 }

@@ -12,12 +12,12 @@ class MainActivity : AppCompatActivity() {
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_ricetta)
 
         // if a fragment isn't already available
-        /*if (currentFragment == null) {
-            val fragment = CrimeListFragment.newInstance()
+        if (currentFragment == null) {
+            val fragment = RicettarioFragment.newInstance()
             supportFragmentManager
                 .beginTransaction() // begins the transaction which will add the fragment (or more) to the activity
-                .add(R.id.fragment_container, fragment) // adds the fragment container, which is in activity_main, to the CrimeFragment instance
+                .add(R.id.fragment_container_ricetta, fragment) // adds the fragment container, which is in activity_main, to the CrimeFragment instance
                 .commit()
-        }*/
+        }
     }
 }

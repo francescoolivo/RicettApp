@@ -1,5 +1,7 @@
 package it.unibo.android.ricettapp.presenter.gestionericettario;
 
+import java.util.List;
+
 import it.unibo.android.ricettapp.model.Ricetta;
 import it.unibo.android.ricettapp.model.Ricettario;
 
@@ -25,5 +27,12 @@ public class RicettarioPresenter implements IRicettario{
     public boolean eliminaRicetta(Ricetta ricetta) {
         Ricettario ricettario = Ricettario.getInstance();
         return ricettario.eliminaRicetta(ricetta);
+    }
+
+    // metodo aggiunto per usarlo nella view
+    @Override
+    public List<Ricetta> getRicette() {
+        Ricettario ricettario = Ricettario.getInstance();
+        return ricettario.getRicette();
     }
 }

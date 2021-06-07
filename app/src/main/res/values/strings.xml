@@ -11,6 +11,7 @@
     <string name="passaggi">Passaggi</string>
     <string name="aggiungi_ingrediente">Aggiungi ingrediente</string>
     <string name="descrizione_passaggio">Descrizione passaggio</string>
+    <string name="aggiungi_ricetta">Aggiungi ricetta</string>
     <string-array name="months">
     <item name="gennaio" type="integer">1</item>
     <item name="febbraio" type="integer">2</item>
