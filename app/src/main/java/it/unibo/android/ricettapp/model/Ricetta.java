@@ -28,6 +28,19 @@ public class Ricetta implements IParametroRicercaRicetta{
         this.tags = tags;
     }
 
+    public Ricetta() {
+        this.id = 0;
+        this.nome = "";
+        this.descrizione = "";
+        this.fotografie = new File[50];
+        this.tempoDiEsecuzione = 0;
+        this.numeroDiPersone = 0;
+        this.ingredienti = new IngredienteConQuantita[50];
+        this.passaggi = new Passaggio[50];
+        this.tags = new Tag[50];
+
+    }
+
     public Passaggio[] getPassaggi() {
         return passaggi;
     }
