@@ -6,10 +6,10 @@ import java.util.List;
 
 public class ListaDellaSpesa implements IContenitoreIngredienti {
 
-    private long id;
+    private final long id;
     private static ListaDellaSpesa instance = null;
 
-    private List<IngredienteConQuantita> ingredienti;
+    private final List<IngredienteConQuantita> ingredienti;
 
     public long getId() {
         return id;
