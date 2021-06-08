@@ -35,4 +35,14 @@ public class RicettarioPresenter implements IRicettario{
         Ricettario ricettario = Ricettario.getInstance();
         return ricettario.getRicette();
     }
+
+    @Override
+    public void caricaRicetta(long id) {
+
+    }
+
+    @Override
+    public void salvaRicetta(Ricetta ricetta) {
+
+    }
 }

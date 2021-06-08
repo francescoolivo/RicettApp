@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import it.unibo.android.ricettapp.R
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), RicettarioFragment.Callbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -19,5 +19,14 @@ class MainActivity : AppCompatActivity() {
                 .add(R.id.fragment_container_ricetta, fragment) // adds the fragment container, which is in activity_main, to the CrimeFragment instance
                 .commit()
         }
+    }
+
+    override fun scegliRicetta(id: Long) {
+        val fragment = RicettaFragment.newInstance(id)
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container_ricetta, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

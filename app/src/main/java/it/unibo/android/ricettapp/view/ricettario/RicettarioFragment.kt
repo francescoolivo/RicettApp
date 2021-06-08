@@ -18,13 +18,14 @@ import java.util.*
 class RicettarioFragment : Fragment() {
 
     interface Callbacks {
-        fun scegliRicetta(id: UUID)
+        fun scegliRicetta(id: Long)
     }
 
     private var callbacks: Callbacks? = null
     private lateinit var ricettaRecyclerView: RecyclerView
     private var adapter: RicettaAdapter? = RicettaAdapter(emptyList())
     private val ricettarioPresenter : IRicettario = RicettarioPresenter()
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
