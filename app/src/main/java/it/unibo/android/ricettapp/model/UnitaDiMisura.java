@@ -17,8 +17,8 @@ public enum UnitaDiMisura {
     ONCIA("Oncia", "oz"),
     ONCIA_LIQUIDA("Oncia liquida", "fl. oz.");
 
-    private String printable;
-    private String abbreviation;
+    private final String printable;
+    private final String abbreviation;
 
     UnitaDiMisura(String printable, String abbreviation) {
         this.printable = printable;

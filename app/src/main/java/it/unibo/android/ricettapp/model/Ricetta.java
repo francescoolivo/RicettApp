@@ -116,7 +116,7 @@ public class Ricetta implements IParametroRicercaRicetta{
             return false;
         } else if (other instanceof Ingrediente) {
             for (IngredienteConQuantita i : this.getIngredienti()) {
-                if (i.matches(other)) {
+                if (i.getIngrediente().matches(other)) {
                     return true;
                 }
             }

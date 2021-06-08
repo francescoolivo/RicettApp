@@ -11,7 +11,7 @@ public enum TipologiaIngrediente implements IParametroRicercaIngrediente{
     LATTICINI("Latticini"),
     FRUTTA_SECCA("Frutta secca");
 
-    private String printable;
+    private final String printable;
 
     TipologiaIngrediente(String printable) {
         this.printable = printable;

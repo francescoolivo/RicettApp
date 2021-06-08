@@ -6,10 +6,10 @@ import java.util.List;
 
 public class ListaDiTag {
 
-    private long id;
+    private final long id;
     private static ListaDiTag instance = null;
 
-    private List<Tag> tags;
+    private final List<Tag> tags;
 
     protected ListaDiTag() {
         tags = new ArrayList<>();

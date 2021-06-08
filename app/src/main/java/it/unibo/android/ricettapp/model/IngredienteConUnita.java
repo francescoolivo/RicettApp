@@ -36,13 +36,12 @@ public class IngredienteConUnita implements IIngredienteConUnita {
         this.unita = unita;
     }
 
-    @Override
-    public boolean matches(IParametroRicercaIngrediente other) {
-        return false;
+    public boolean equals(Object other) {
+        if (other instanceof IngredienteConUnita) {
+            return this.ingrediente.equals(((IngredienteConUnita) other).getIngrediente()) && this.unita == ((IngredienteConUnita) other).getUnita();
+        } else {
+            return false;
+        }
     }
 
-    @Override
-    public boolean matches(IParametroRicercaRicetta other) {
-        return false;
-    }
 }

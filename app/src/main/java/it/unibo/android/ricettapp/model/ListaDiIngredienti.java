@@ -6,9 +6,9 @@ import java.util.List;
 
 public class ListaDiIngredienti implements IContenitoreIngredienti{
 
-    private static ListaDiIngredienti instance;
+    private static ListaDiIngredienti instance = null;
 
-    private List<Ingrediente> ingredienti;
+    private final List<Ingrediente> ingredienti;
 
     protected ListaDiIngredienti() {
         this.ingredienti = new ArrayList<>();
