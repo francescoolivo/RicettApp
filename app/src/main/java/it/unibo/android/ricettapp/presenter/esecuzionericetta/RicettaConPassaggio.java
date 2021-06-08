@@ -27,4 +27,26 @@ public class RicettaConPassaggio {
     public void setPassaggio(int passaggio) {
         this.passaggio = passaggio;
     }
+
+    public boolean prossimoPassaggio() {
+        if (haAltriPassaggi()) {
+            passaggio++;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean passaggioPrecedente() {
+        if (passaggio > 0) {
+            passaggio--;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean haAltriPassaggi() {
+        return passaggio < ricetta.getPassaggi().length - 1;
+    }
 }
