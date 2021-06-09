@@ -19,6 +19,7 @@ class RicettarioFragment : Fragment() {
 
     interface Callbacks {
         fun scegliRicetta(id: Long)
+        fun creaRicetta()
     }
 
     private var callbacks: Callbacks? = null
@@ -45,9 +46,7 @@ class RicettarioFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.nuova_ricetta -> {
-                val ricetta = Ricetta()
-                ricettarioPresenter.aggiungiRicetta(ricetta)
-                callbacks?.scegliRicetta(ricetta.id)
+                callbacks?.creaRicetta()
                 true
             }
             else -> return super.onOptionsItemSelected(item)

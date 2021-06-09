@@ -3,6 +3,7 @@ package it.unibo.android.ricettapp.view.ricettario
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import it.unibo.android.ricettapp.R
+import it.unibo.android.ricettapp.model.Ricetta
 
 class MainActivity : AppCompatActivity(), RicettarioFragment.Callbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,15 @@ class MainActivity : AppCompatActivity(), RicettarioFragment.Callbacks {
 
     override fun scegliRicetta(id: Long) {
         val fragment = RicettaFragment.newInstance(id)
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container_ricetta, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun creaRicetta() {
+        val fragment = AggiuntaRicettaFragment.newInstance()
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragment_container_ricetta, fragment)

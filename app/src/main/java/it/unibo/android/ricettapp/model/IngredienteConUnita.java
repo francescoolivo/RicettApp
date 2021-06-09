@@ -44,4 +44,8 @@ public class IngredienteConUnita implements IIngredienteConUnita {
         }
     }
 
+    @Override
+    public boolean matches(IParametroRicercaIngrediente other) {
+        return false;
+    }
 }

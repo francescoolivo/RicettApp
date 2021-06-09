@@ -13,7 +13,7 @@
         android:text="@string/nome_ricetta" />
 
     <EditText
-        android:id="@+id/descrizione_ricetta_ricetta"
+        android:id="@+id/descrizione_ricetta"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_margin="8dp"
@@ -64,12 +64,12 @@
 
         <EditText
             android:id="@+id/tempo"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="15"
+            android:layout_gravity="end"
             android:ems="10"
             android:inputType="number"
-            android:layout_gravity="end"/>
+            android:text="15" />
 
         <Spinner
             android:layout_width="wrap_content"
@@ -116,7 +116,7 @@
         />
 
     <EditText
-        android:id="@+id/aggiungi_passaggio_testo"
+        android:id="@+id/contenuto_passaggio"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_margin="8dp"
@@ -124,7 +124,7 @@
 
 
     <ImageButton
-        android:id="@+id/aggiungi_passaggio_button"
+        android:id="@+id/aggiungi_passaggio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_add" />
