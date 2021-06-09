@@ -1,10 +1,17 @@
 package it.unibo.android.ricettapp.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.File;
 
+@Entity
 public class Passaggio {
 
+    @PrimaryKey
     private String conenuto;
+    @ColumnInfo(name = "contenuto")
     private File fotografia;
 
     public Passaggio(String conenuto, File fotografia) {

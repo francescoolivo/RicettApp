@@ -1,7 +1,12 @@
 package it.unibo.android.ricettapp.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+
+@Entity
 public class IngredienteConQuantita extends IngredienteConUnita {
 
+    @ColumnInfo(name = "quantita")
     private int quantita;
 
     public IngredienteConQuantita(Ingrediente ingrediente, int calorie, UnitaDiMisura unitaDiMisura, int quantita) {

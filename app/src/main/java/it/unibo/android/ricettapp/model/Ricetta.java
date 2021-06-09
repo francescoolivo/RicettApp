@@ -1,19 +1,34 @@
 package it.unibo.android.ricettapp.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.File;
 import java.util.Date;
 
+@Entity
 public class Ricetta implements IParametroRicercaRicetta{
 
+    @PrimaryKey
     private long id;
+    @ColumnInfo(name = "nome")
     private String nome;
+    @ColumnInfo(name = "descrizione")
     private String descrizione;
+    @ColumnInfo(name = "ultimeModifica")
     private Date ultimaModifica;
+    @ColumnInfo(name = "fotografie")
     private File[] fotografie;
+    @ColumnInfo(name = "tempodiEsecuzione")
     private int tempoDiEsecuzione;
+    @ColumnInfo(name = "numeroDiPersone")
     private int numeroDiPersone;
+    @ColumnInfo(name = "ingredienti")
     private IngredienteConQuantita[] ingredienti;
+    @ColumnInfo(name = "passaggi")
     private Passaggio[] passaggi;
+    @ColumnInfo(name = "tags")
     private Tag[] tags;
 
     public Ricetta(String nome, String descrizione, File[] fotografie, int tempoDiEsecuzione, int numeroDiPersone, IngredienteConQuantita[] ingredienti, Passaggio[] passaggi, Tag[] tags) {

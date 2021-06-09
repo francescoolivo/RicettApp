@@ -1,7 +1,12 @@
 package it.unibo.android.ricettapp.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Tag implements IParametroRicercaRicetta {
 
+    @PrimaryKey
     private String nome;
 
     public Tag(String nome) {

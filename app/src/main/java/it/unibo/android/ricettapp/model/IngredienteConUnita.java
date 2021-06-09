@@ -1,10 +1,20 @@
 package it.unibo.android.ricettapp.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+
+// @Entity(primaryKeys = {"ingrediente","unita"})
+
+@Entity(foreignKeys = {@ForeignKey(entity = Ingrediente.class, parentColumns = {"id"}, childColumns = {"unita"})})
 public class IngredienteConUnita implements IIngredienteConUnita {
 
+    @ColumnInfo(name = "ingrediente")
     private Ingrediente ingrediente;
-    private int calorie;
+    @ColumnInfo(name = "unita")
     private UnitaDiMisura unita;
+    @ColumnInfo(name = "calorie")
+    private int calorie;
 
     public IngredienteConUnita(Ingrediente ingrediente, int calorie, UnitaDiMisura unita) {
         this.ingrediente = ingrediente;

@@ -1,13 +1,20 @@
 package it.unibo.android.ricettapp.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Ricettario {
 
+    @PrimaryKey
     private long id;
     private static Ricettario instance = null;
 
+    @ColumnInfo(name = "ricette")
     private List<Ricetta> ricette;
 
     protected Ricettario() {

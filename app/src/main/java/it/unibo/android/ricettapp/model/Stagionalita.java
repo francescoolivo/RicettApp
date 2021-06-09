@@ -3,12 +3,18 @@ package it.unibo.android.ricettapp.model;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import java.time.LocalDate;
 
+@Entity(primaryKeys = {"inizio","fine"})
 public class Stagionalita implements IParametroRicercaIngrediente {
 
+    @ColumnInfo(name = "inizio")
     private int inizio = 1;
+    @ColumnInfo(name = "fine")
     private int fine = 12;
 
     public Stagionalita(int inizio, int fine) {

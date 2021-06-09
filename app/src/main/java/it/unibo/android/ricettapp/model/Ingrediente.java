@@ -1,14 +1,25 @@
 package it.unibo.android.ricettapp.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.File;
 
+@Entity
 public class Ingrediente implements IParametroRicercaIngrediente, IParametroRicercaRicetta, IIngrediente {
 
+    @PrimaryKey
     private final long id;
+    @ColumnInfo(name = "nome")
     private String nome;
+    @ColumnInfo(name = "fotografie")
     private File[] fotografie;
+    @ColumnInfo(name = "tipologie")
     private TipologiaIngrediente[] tipologie;
+    @ColumnInfo(name = "unita")
     private IngredienteConUnita[] unita;
+    @ColumnInfo(name = "stagionalita")
     private Stagionalita stagionalita;
 
     public Ingrediente(String nome, File[] fotografie, TipologiaIngrediente[] tipologie, IngredienteConUnita[] unita, Stagionalita stagionalita) {

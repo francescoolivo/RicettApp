@@ -1,17 +1,30 @@
 package it.unibo.android.ricettapp.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@Entity
 public class ListaDiIngredienti implements IContenitoreIngredienti{
 
+    @PrimaryKey
+    private final long id;
     private static ListaDiIngredienti instance = null;
 
+    @ColumnInfo(name = "ingredienti")
     private final List<Ingrediente> ingredienti;
 
     protected ListaDiIngredienti() {
+        this.id = System.currentTimeMillis();
         this.ingredienti = new ArrayList<>();
+    }
+
+    public long getId() {
+        return id;
     }
 
     public static ListaDiIngredienti getInstance() {

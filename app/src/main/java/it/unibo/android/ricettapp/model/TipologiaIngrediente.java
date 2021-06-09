@@ -1,5 +1,9 @@
 package it.unibo.android.ricettapp.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public enum TipologiaIngrediente implements IParametroRicercaIngrediente{
 
     FRUTTA("Frutta"),
@@ -11,6 +15,7 @@ public enum TipologiaIngrediente implements IParametroRicercaIngrediente{
     LATTICINI("Latticini"),
     FRUTTA_SECCA("Frutta secca");
 
+    @PrimaryKey
     private final String printable;
 
     TipologiaIngrediente(String printable) {
