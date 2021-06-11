@@ -2,6 +2,7 @@ package it.unibo.android.ricettapp.persistence;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 import it.unibo.android.ricettapp.model.Frigo;
 import it.unibo.android.ricettapp.model.Ingrediente;
@@ -19,6 +20,7 @@ import it.unibo.android.ricettapp.model.TipologiaIngrediente;
 import it.unibo.android.ricettapp.model.UnitaDiMisura;
 
 @Database(entities = {Ricetta.class}, version = 1, exportSchema = true)
+@TypeConverters(RicettaConverters.class)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract RicettaDao ricettaDao();

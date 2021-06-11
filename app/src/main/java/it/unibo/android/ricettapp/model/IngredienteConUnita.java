@@ -4,9 +4,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 
+import kotlinx.serialization.Serializable;
+
 // @Entity(primaryKeys = {"ingrediente","unita"})
 
-@Entity(foreignKeys = {@ForeignKey(entity = Ingrediente.class, parentColumns = {"id"}, childColumns = {"unita"})})
+@Entity(foreignKeys = {@ForeignKey(entity = Ingrediente.class, parentColumns = {"id"}, childColumns = {"unita"})}) @Serializable
 public class IngredienteConUnita implements IIngredienteConUnita {
 
     @ColumnInfo(name = "ingrediente")

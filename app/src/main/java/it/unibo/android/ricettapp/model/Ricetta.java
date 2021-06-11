@@ -2,13 +2,14 @@ package it.unibo.android.ricettapp.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.File;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
+@Entity @kotlinx.serialization.Serializable
 public class Ricetta implements IParametroRicercaRicetta, Serializable {
 
     @PrimaryKey
@@ -19,7 +20,7 @@ public class Ricetta implements IParametroRicercaRicetta, Serializable {
     private String descrizione;
     @ColumnInfo(name = "ultimeModifica")
     private Date ultimaModifica;
-    @ColumnInfo(name = "fotografie")
+    @Ignore
     private File[] fotografie;
     @ColumnInfo(name = "tempodiEsecuzione")
     private int tempoDiEsecuzione;
@@ -90,6 +91,8 @@ public class Ricetta implements IParametroRicercaRicetta, Serializable {
     public String getDescrizione() {return descrizione; }
 
     public Date getUltimaModifica() {return ultimaModifica; }
+
+    public void setUltimaModifica(Date date) {this.ultimaModifica = date; }
 
     public File[] getFotografie() {return fotografie; }
 

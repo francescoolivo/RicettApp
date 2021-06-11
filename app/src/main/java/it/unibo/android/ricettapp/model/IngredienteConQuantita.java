@@ -3,7 +3,9 @@ package it.unibo.android.ricettapp.model;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 
-@Entity
+import kotlinx.serialization.Serializable;
+
+@Entity @Serializable
 public class IngredienteConQuantita extends IngredienteConUnita {
 
     @ColumnInfo(name = "quantita")
