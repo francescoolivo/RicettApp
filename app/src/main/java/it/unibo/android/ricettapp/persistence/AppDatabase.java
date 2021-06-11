@@ -21,7 +21,7 @@ import it.unibo.android.ricettapp.model.UnitaDiMisura;
 @Database(entities = {Frigo.class, Ingrediente.class, IngredienteConQuantita.class, IngredienteConUnita.class,
                         ListaDellaSpesa.class, ListaDiIngredienti.class, ListaDiTag.class, Passaggio.class,
                         Ricetta.class, Ricettario.class, Stagionalita.class, Tag.class,
-                        TipologiaIngrediente.class, UnitaDiMisura.class}, version = 1)
+                        TipologiaIngrediente.class, UnitaDiMisura.class}, version = 1, exportSchema = true)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract FrigoDao frigoDao();
