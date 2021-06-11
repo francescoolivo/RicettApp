@@ -1,5 +1,6 @@
 package it.unibo.android.ricettapp.persistence;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -12,7 +13,7 @@ import it.unibo.android.ricettapp.model.TipologiaIngrediente;
 public interface TipologiaIngredienteDao {
 
     @Query("SELECT * FROM tipologiaingrediente")
-    TipologiaIngrediente getAll();
+    LiveData<TipologiaIngrediente> getAll();
 
     @Insert
     void insert(TipologiaIngrediente... tipologiaIngredientes);

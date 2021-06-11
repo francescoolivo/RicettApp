@@ -1,5 +1,6 @@
 package it.unibo.android.ricettapp.persistence;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,7 +14,7 @@ import it.unibo.android.ricettapp.model.Ingrediente;
 public interface IngredienteDao {
 
     @Query("SELECT * from ingrediente")
-    List<Ingrediente> getAll();
+    LiveData<List<Ingrediente>> getAll();
 
     @Insert
     void insertAll(Ingrediente... ingredienti) ;

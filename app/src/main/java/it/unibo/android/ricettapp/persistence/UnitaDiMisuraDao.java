@@ -1,5 +1,6 @@
 package it.unibo.android.ricettapp.persistence;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -12,7 +13,7 @@ import it.unibo.android.ricettapp.model.UnitaDiMisura;
 public interface UnitaDiMisuraDao {
 
     @Query("SELECT * FROM unitadimisura")
-    UnitaDiMisura getAll();
+    LiveData<UnitaDiMisura> getAll();
 
     @Insert
     void insert(UnitaDiMisura... unitaDiMisuras);

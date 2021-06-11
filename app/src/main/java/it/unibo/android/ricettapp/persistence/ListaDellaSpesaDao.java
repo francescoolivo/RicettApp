@@ -1,5 +1,6 @@
 package it.unibo.android.ricettapp.persistence;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -11,7 +12,7 @@ import it.unibo.android.ricettapp.model.ListaDellaSpesa;
 public interface ListaDellaSpesaDao {
 
     @Query("SELECT * FROM listadellaspesa")
-    ListaDellaSpesa get();
+    LiveData<ListaDellaSpesa> get();
 
     @Insert
     void insert(ListaDellaSpesa... listaDellaSpesa);

@@ -1,5 +1,6 @@
 package it.unibo.android.ricettapp.persistence;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,7 +14,7 @@ import it.unibo.android.ricettapp.model.Passaggio;
 public interface PassaggioDao {
 
     @Query("SELECT * FROM passaggio")
-    List<Passaggio> getAll() ;
+    LiveData<List<Passaggio>> getAll() ;
 
     @Insert
     void insertAll(Passaggio... passaggios) ;

@@ -1,5 +1,6 @@
 package it.unibo.android.ricettapp.persistence;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,7 +14,7 @@ import it.unibo.android.ricettapp.model.Stagionalita;
 public interface StagionalitaDao {
 
     @Query("SELECT * FROM stagionalita")
-    List<Stagionalita> getAll();
+    LiveData<List<Stagionalita>> getAll();
 
     @Insert
     void insertAll(Stagionalita... stagionalitas);
