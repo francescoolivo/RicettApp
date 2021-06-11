@@ -26,11 +26,14 @@ public class Ricetta implements IParametroRicercaRicetta, Serializable {
     private int tempoDiEsecuzione;
     @ColumnInfo(name = "numeroDiPersone")
     private int numeroDiPersone;
-    @ColumnInfo(name = "ingredienti")
+    //@ColumnInfo(name = "ingredienti")
+    @Ignore
     private IngredienteConQuantita[] ingredienti;
-    @ColumnInfo(name = "passaggi")
+    //@ColumnInfo(name = "passaggi")
+    @Ignore
     private Passaggio[] passaggi;
-    @ColumnInfo(name = "tags")
+    //@ColumnInfo(name = "tags")
+    @Ignore
     private Tag[] tags;
 
     public Ricetta(String nome, String descrizione, File[] fotografie, int tempoDiEsecuzione, int numeroDiPersone, IngredienteConQuantita[] ingredienti, Passaggio[] passaggi, Tag[] tags) {
@@ -46,7 +49,7 @@ public class Ricetta implements IParametroRicercaRicetta, Serializable {
     }
 
     public Ricetta() {
-        this.id = 0;
+        this.id = System.currentTimeMillis();
         this.nome = "";
         this.descrizione = "";
         this.fotografie = new File[50];

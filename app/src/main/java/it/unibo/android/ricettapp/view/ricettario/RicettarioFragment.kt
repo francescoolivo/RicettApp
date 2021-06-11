@@ -13,6 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import it.unibo.android.ricettapp.R
@@ -20,7 +21,6 @@ import it.unibo.android.ricettapp.model.Ricetta
 import it.unibo.android.ricettapp.presenter.gestionericettario.IRicettario
 import it.unibo.android.ricettapp.presenter.gestionericettario.RicettarioPresenter
 import java.text.DateFormat
-import java.util.*
 
 private const val RICETTA = "ricetta"
 
@@ -32,9 +32,12 @@ class RicettarioFragment : Fragment() {
     }
 
     private var callbacks: Callbacks? = null
+
     private lateinit var ricettaRecyclerView: RecyclerView
     private var adapter: RicettaAdapter? = RicettaAdapter(emptyList())
+
     private val ricettarioPresenter: RicettarioPresenter by viewModels()
+
     private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data
@@ -55,6 +58,17 @@ class RicettarioFragment : Fragment() {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ricettarioPresenter.ricette.observe(
+            viewLifecycleOwner,
+            Observer { ricette ->
+                ricette?.let {
+                    updateUI(ricette)
+                }
+            })
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -91,6 +105,11 @@ class RicettarioFragment : Fragment() {
     override fun onDetach() {
         super.onDetach()
         callbacks = null
+    }
+
+    private fun updateUI(ricette: List<Ricetta>) {
+        adapter = RicettaAdapter(ricette)
+        ricettaRecyclerView.adapter = adapter
     }
 
     companion object {

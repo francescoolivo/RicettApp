@@ -23,7 +23,7 @@ import it.unibo.android.ricettapp.persistence.RicettarioDao;
 public class RicettarioPresenter extends ViewModel implements IRicettario{
 
     private Repository repository = Repository.Companion.get();
-    private LiveData<List<Ricetta>> ricette = repository.getRicette();
+    public LiveData<List<Ricetta>> ricette = repository.getRicette();
 
 
     @Override
