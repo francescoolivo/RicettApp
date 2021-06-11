@@ -10,7 +10,5 @@ public interface IRicettario {
     boolean modificaRicetta(Ricetta ricetta) ;
     void scegliRicetta(Ricetta ricetta) ;
     boolean eliminaRicetta(Ricetta ricetta) ;
-    List<Ricetta> getRicette();
-    void caricaRicetta(long id);
-    void salvaRicetta(Ricetta ricetta);
+
 }

@@ -31,7 +31,7 @@ class RicettaFragment : Fragment() {
         super.onCreate(savedInstanceState)
         ricetta = Ricetta()
         val id: Long = arguments?.getLong(ARG_RICETTA_ID) as Long
-        ricettarioPresenter.caricaRicetta(id)
+        //ricettarioPresenter.caricaRicetta(id)
     }
 
     override fun onCreateView(

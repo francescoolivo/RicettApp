@@ -39,12 +39,9 @@ class AggiuntaRicettaActivity : AppCompatActivity(), AdapterView.OnItemSelectedL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_aggiunta_ricetta)
 
-/*
         ricettarioPresenter = ViewModelProvider(this).get(RicettarioPresenter::class.java)
-*/
 
         nome = findViewById<EditText>(R.id.nome_ricetta)
         descrizione = findViewById<EditText>(R.id.descrizione_ricetta)
@@ -88,10 +85,9 @@ class AggiuntaRicettaActivity : AppCompatActivity(), AdapterView.OnItemSelectedL
                     tempo.text.toString().toInt()
                 }
                 Log.d("AGGIUNGI_RICETTA_FRAG", "Voglio salvare la ricetta")
-                val data = Intent().apply {
-                    putExtra(RICETTA, ricetta)
-                }
-                setResult(Activity.RESULT_OK, data)
+                ricettarioPresenter.aggiungiRicetta(ricetta)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
                 true
             }
             else -> return super.onOptionsItemSelected(item)

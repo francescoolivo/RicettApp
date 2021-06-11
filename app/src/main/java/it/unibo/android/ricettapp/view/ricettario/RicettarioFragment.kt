@@ -28,7 +28,7 @@ class RicettarioFragment : Fragment() {
 
     interface Callbacks {
         fun scegliRicetta(id: Long)
-        fun creaRicetta()
+        fun aggiungiRicetta()
     }
 
     private var callbacks: Callbacks? = null
@@ -40,7 +40,7 @@ class RicettarioFragment : Fragment() {
             val data = result.data
             val ricetta: Ricetta = data?.getSerializableExtra(RICETTA) as Ricetta
             Log.d("MAIN_SALVA", "Sono riuscito a serializzare l'oggetto ${ricetta.nome}")
-            ricettarioPresenter.salvaRicetta(ricetta)
+            ricettarioPresenter.aggiungiRicetta(ricetta)
             // Handle the Intent
         }
     }

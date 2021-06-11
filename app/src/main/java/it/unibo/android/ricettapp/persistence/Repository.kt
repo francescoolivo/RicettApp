@@ -24,6 +24,12 @@ class Repository private constructor(context: Context) {
 
     fun getRicetta(id: Long): LiveData<Ricetta?> = ricettaDao.getRicetta(id)
 
+    fun inserisciRicetta(ricetta: Ricetta) {
+        executor.execute {
+            ricettaDao.insertAll(ricetta)
+        }
+    }
+
     fun aggiornaRicetta(ricetta: Ricetta) {
         executor.execute {
             ricettaDao.update(ricetta)
