@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import it.unibo.android.ricettapp.R
 import it.unibo.android.ricettapp.model.Ricetta
 import it.unibo.android.ricettapp.presenter.gestionericettario.IRicettario
@@ -23,7 +25,7 @@ class RicettaFragment : Fragment() {
     private lateinit var nome : TextView
     private lateinit var descrizione : TextView
 
-    private val ricettarioPresenter : IRicettario = RicettarioPresenter()
+    private val ricettarioPresenter: RicettarioPresenter by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

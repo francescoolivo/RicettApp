@@ -1,15 +1,39 @@
 package it.unibo.android.ricettapp.presenter.gestionericettario;
 
+import android.app.Application;
+import android.content.Context;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.ViewModel;
+import androidx.room.Room;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 import it.unibo.android.ricettapp.model.Ricetta;
 import it.unibo.android.ricettapp.model.Ricettario;
+import it.unibo.android.ricettapp.persistence.AppDatabase;
+import it.unibo.android.ricettapp.persistence.RicettaDao;
+import it.unibo.android.ricettapp.persistence.RicettarioDao;
 
-public class RicettarioPresenter implements IRicettario{
+public class RicettarioPresenter extends AndroidViewModel implements IRicettario{
+
+    private AppDatabase database = Room.databaseBuilder(getApplication().getApplicationContext(),
+            AppDatabase.class, "database-name").build();
+
+    public RicettarioPresenter(@NonNull @NotNull Application application) {
+        super(application);
+    }
+
     @Override
     public boolean aggiungiRicetta(Ricetta ricetta) {
         Ricettario ricettario = Ricettario.getInstance();
+        RicettaDao ricettaDao = database.ricettaDao();
+        ricettaDao.insertAll(ricetta);
         return ricettario.aggiungiRicetta(ricetta);
+
     }
 
     @Override

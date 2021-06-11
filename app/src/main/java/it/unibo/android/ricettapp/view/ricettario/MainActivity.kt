@@ -1,11 +1,24 @@
 package it.unibo.android.ricettapp.view.ricettario
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import it.unibo.android.ricettapp.R
 import it.unibo.android.ricettapp.model.Ricetta
+import it.unibo.android.ricettapp.presenter.gestionericettario.RicettarioPresenter
+
+private const val RICETTA = "ricetta"
 
 class MainActivity : AppCompatActivity(), RicettarioFragment.Callbacks {
+
+    private val ricettarioPresenter: RicettarioPresenter by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,11 +45,16 @@ class MainActivity : AppCompatActivity(), RicettarioFragment.Callbacks {
     }
 
     override fun creaRicetta() {
-        val fragment = AggiuntaRicettaFragment.newInstance()
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container_ricetta, fragment)
-            .addToBackStack(null)
-            .commit()
+        val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data = result.data
+                val ricetta: Ricetta = data?.getSerializableExtra(RICETTA) as Ricetta
+                Log.d("MAIN_SALVA", "Sono riuscito a serializzare l'oggetto ${ricetta.nome}")
+                ricettarioPresenter.salvaRicetta(ricetta)
+                // Handle the Intent
+            }
+        }
     }
+
+
 }

@@ -5,10 +5,11 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Ricetta implements IParametroRicercaRicetta{
+public class Ricetta implements IParametroRicercaRicetta, Serializable {
 
     @PrimaryKey
     private long id;

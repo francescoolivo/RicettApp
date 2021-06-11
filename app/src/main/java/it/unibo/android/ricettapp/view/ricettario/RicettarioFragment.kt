@@ -1,11 +1,18 @@
 package it.unibo.android.ricettapp.view.ricettario
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import it.unibo.android.ricettapp.R
@@ -14,6 +21,8 @@ import it.unibo.android.ricettapp.presenter.gestionericettario.IRicettario
 import it.unibo.android.ricettapp.presenter.gestionericettario.RicettarioPresenter
 import java.text.DateFormat
 import java.util.*
+
+private const val RICETTA = "ricetta"
 
 class RicettarioFragment : Fragment() {
 
@@ -25,7 +34,16 @@ class RicettarioFragment : Fragment() {
     private var callbacks: Callbacks? = null
     private lateinit var ricettaRecyclerView: RecyclerView
     private var adapter: RicettaAdapter? = RicettaAdapter(emptyList())
-    private val ricettarioPresenter : IRicettario = RicettarioPresenter()
+    private val ricettarioPresenter: RicettarioPresenter by viewModels()
+    private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data = result.data
+            val ricetta: Ricetta = data?.getSerializableExtra(RICETTA) as Ricetta
+            Log.d("MAIN_SALVA", "Sono riuscito a serializzare l'oggetto ${ricetta.nome}")
+            ricettarioPresenter.salvaRicetta(ricetta)
+            // Handle the Intent
+        }
+    }
 
 
     override fun onAttach(context: Context) {
@@ -36,6 +54,7 @@ class RicettarioFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -46,7 +65,9 @@ class RicettarioFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.nuova_ricetta -> {
-                callbacks?.creaRicetta()
+                //callbacks?.creaRicetta()
+
+                startForResult.launch(Intent(this.requireContext(), AggiuntaRicettaActivity::class.java))
                 true
             }
             else -> return super.onOptionsItemSelected(item)
