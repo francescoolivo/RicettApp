@@ -18,12 +18,11 @@ import it.unibo.android.ricettapp.model.Tag;
 import it.unibo.android.ricettapp.model.TipologiaIngrediente;
 import it.unibo.android.ricettapp.model.UnitaDiMisura;
 
-@Database(entities = {Frigo.class, Ingrediente.class, IngredienteConQuantita.class, IngredienteConUnita.class,
-                        ListaDellaSpesa.class, ListaDiIngredienti.class, ListaDiTag.class, Passaggio.class,
-                        Ricetta.class, Ricettario.class, Stagionalita.class, Tag.class,
-                        TipologiaIngrediente.class, UnitaDiMisura.class}, version = 1, exportSchema = true)
+@Database(entities = {Ricetta.class}, version = 1, exportSchema = true)
 public abstract class AppDatabase extends RoomDatabase {
 
+    public abstract RicettaDao ricettaDao();
+    /*
     public abstract FrigoDao frigoDao();
     public abstract IngredienteDao ingredienteDao();
     public abstract IngredienteConQuantitaDao ingredienteConQuantitaDao();
@@ -32,11 +31,10 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract ListaDiIngredientiDao listaDiIngredientiDao();
     public abstract ListaDiTagDao listaDiTagDao();
     public abstract PassaggioDao passaggioDao();
-    public abstract RicettaDao ricettaDao();
     public abstract RicettarioDao ricettarioDao();
     public abstract StagionalitaDao stagionalitaDao();
     public abstract TagDao tagDao();
     public abstract TipologiaIngredienteDao tipologiaIngredienteDao();
     public abstract UnitaDiMisuraDao unitaDiMisuraDao();
-
+*/
 }
