@@ -6,11 +6,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -18,9 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import it.unibo.android.ricettapp.R
 import it.unibo.android.ricettapp.model.Ricetta
-import it.unibo.android.ricettapp.presenter.gestionericettario.IRicettario
 import it.unibo.android.ricettapp.presenter.gestionericettario.RicettarioPresenter
-import java.text.DateFormat
 
 private const val RICETTA = "ricetta"
 
