@@ -8,7 +8,7 @@ public interface IRicettario {
 
     boolean aggiungiRicetta(Ricetta ricetta) ;
     boolean modificaRicetta(Ricetta ricetta) ;
-    void scegliRicetta(Ricetta ricetta) ;
+    Ricetta scegliRicetta(Long id) ;
     boolean eliminaRicetta(Ricetta ricetta) ;
 
 }

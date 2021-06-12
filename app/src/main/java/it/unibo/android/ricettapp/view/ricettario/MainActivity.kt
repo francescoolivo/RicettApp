@@ -44,19 +44,6 @@ class MainActivity : AppCompatActivity(), RicettarioFragment.Callbacks {
             .commit()
     }
 
-    override fun aggiungiRicetta() {
-        val intent = Intent(this, AggiuntaRicettaActivity::class.java)
-        startActivity(intent)
-        /*val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val data = result.data
-                val ricetta: Ricetta = data?.getSerializableExtra(RICETTA) as Ricetta
-                Log.d("MAIN_SALVA", "Sono riuscito a serializzare l'oggetto ${ricetta.nome}")
-                ricettarioPresenter.aggiungiRicetta(ricetta)
-                // Handle the Intent
-            }
-        }*/
-    }
 
 
 }

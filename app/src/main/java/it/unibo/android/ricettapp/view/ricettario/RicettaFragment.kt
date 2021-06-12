@@ -1,6 +1,7 @@
 package it.unibo.android.ricettapp.view.ricettario
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +22,7 @@ class RicettaFragment : Fragment() {
 
     private lateinit var ricetta: Ricetta
 
-    private lateinit var foto : ImageView
+    //private lateinit var foto : ImageView
     private lateinit var nome : TextView
     private lateinit var descrizione : TextView
 
@@ -29,9 +30,10 @@ class RicettaFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ricetta = Ricetta()
         val id: Long = arguments?.getLong(ARG_RICETTA_ID) as Long
-        //ricettarioPresenter.caricaRicetta(id)
+        Log.d("RICETTA_FRAGMENT", "id: ${id}")
+        ricetta = ricettarioPresenter.scegliRicetta(id)
+        Log.d("RICETTA_FRAGMENT", "ricetta: ${ricetta.toString()}")
     }
 
     override fun onCreateView(
@@ -43,7 +45,7 @@ class RicettaFragment : Fragment() {
 
         nome = view.findViewById(R.id.nome_ricetta) as TextView
         descrizione = view.findViewById(R.id.descrizione_ricetta) as TextView
-        foto = view.findViewById(R.id.immagine_ricetta) as ImageView
+        //foto = view.findViewById(R.id.immagine_ricetta) as ImageView
 
         nome.text = ricetta.nome
         descrizione.text = ricetta.descrizione

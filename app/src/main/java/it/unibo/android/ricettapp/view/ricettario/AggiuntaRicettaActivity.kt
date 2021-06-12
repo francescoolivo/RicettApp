@@ -84,10 +84,10 @@ class AggiuntaRicettaActivity : AppCompatActivity(), AdapterView.OnItemSelectedL
                 } else {
                     tempo.text.toString().toInt()
                 }
-                Log.d("AGGIUNGI_RICETTA_FRAG", "Voglio salvare la ricetta")
                 ricettarioPresenter.aggiungiRicetta(ricetta)
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+
+                setResult(Activity.RESULT_OK)
+                finish()
                 true
             }
             else -> return super.onOptionsItemSelected(item)

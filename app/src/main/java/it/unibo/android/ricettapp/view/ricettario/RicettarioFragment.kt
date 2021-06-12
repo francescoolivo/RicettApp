@@ -24,7 +24,6 @@ class RicettarioFragment : Fragment() {
 
     interface Callbacks {
         fun scegliRicetta(id: Long)
-        fun aggiungiRicetta()
     }
 
     private var callbacks: Callbacks? = null
@@ -36,10 +35,7 @@ class RicettarioFragment : Fragment() {
 
     private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
-            val data = result.data
-            val ricetta: Ricetta = data?.getSerializableExtra(RICETTA) as Ricetta
-            Log.d("MAIN_SALVA", "Sono riuscito a serializzare l'oggetto ${ricetta.nome}")
-            ricettarioPresenter.aggiungiRicetta(ricetta)
+            Log.d("MAIN_SALVA", "Sono riuscito a serializzare l'oggetto")
             // Handle the Intent
         }
     }
@@ -125,7 +121,7 @@ class RicettarioFragment : Fragment() {
         }
 
         override fun onClick(v: View?) {
-            TODO("Not yet implemented")
+            callbacks?.scegliRicetta(ricetta.id)
         }
 
         fun bind(ricetta: Ricetta) {
