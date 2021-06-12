@@ -17,7 +17,7 @@ public interface RicettaDao {
     @Query("SELECT * FROM ricetta")
     LiveData<List<Ricetta>> getAll();
 
-    @Query("SELECT * FROM ricetta WHERE id=(:id)")
+    @Query("SELECT * FROM ricetta WHERE id=:id")
     LiveData<Ricetta> getRicetta(Long id);
 
     @Insert

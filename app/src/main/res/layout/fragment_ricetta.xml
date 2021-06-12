@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_ricetta"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="8dp"
     android:orientation="vertical">
 
     <!--<ScrollView
@@ -15,7 +15,8 @@
         android:id="@+id/immagine_ricetta"
         android:layout_width="match_parent"
         android:layout_height="280dp"
-        app:srcCompat="@drawable/tortellini" />
+        app:srcCompat="@drawable/tortellini"
+        android:contentDescription="@string/foto_ricetta" />
 
     <TextView
         android:id="@+id/nome_ricetta"
@@ -25,6 +26,20 @@
         android:text="@string/nome_ricetta"
         android:textColor="@color/black"
         android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/numero_persone_ricetta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/numero_persone_ricetta" />
+
+    <TextView
+        android:id="@+id/tempo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/tempo" />
 
     <TextView
         android:id="@+id/descrizione_ricetta"

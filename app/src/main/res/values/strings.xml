@@ -13,6 +13,9 @@
     <string name="descrizione_passaggio">Descrizione passaggio</string>
     <string name="aggiungi_ricetta">Aggiungi ricetta</string>
     <string name="salva_ricetta">Salva</string>
+    <string name="numero_persone_ricetta">Numero di Persone</string>
+    <string name="tempo">Tempo di esecuzione</string>
+    <string name="foto_ricetta">Foto della ricetta</string>
     <string-array name="mesi">
         <item name="gennaio" type="integer">1</item>
         <item name="febbraio" type="integer">2</item>

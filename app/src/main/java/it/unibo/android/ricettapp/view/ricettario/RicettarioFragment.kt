@@ -56,7 +56,7 @@ class RicettarioFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         ricettarioPresenter.ricette.observe(
             viewLifecycleOwner,
-            Observer { ricette ->
+            { ricette ->
                 ricette?.let {
                     updateUI(ricette)
                 }
@@ -110,7 +110,7 @@ class RicettarioFragment : Fragment() {
         }
     }
 
-    private inner class RicettaHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener{
+    inner class RicettaHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener{
 
         private lateinit var ricetta : Ricetta
 

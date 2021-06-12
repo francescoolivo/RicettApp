@@ -1,6 +1,7 @@
 package it.unibo.android.ricettapp.persistence
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.room.Room
 import it.unibo.android.ricettapp.model.Ricetta
@@ -22,7 +23,10 @@ class Repository private constructor(context: Context) {
 
     fun getRicette(): LiveData<List<Ricetta>> = ricettaDao.all
 
-    fun getRicetta(id: Long): LiveData<Ricetta?> = ricettaDao.getRicetta(id)
+    fun getRicetta(id: Long): LiveData<Ricetta?> {
+        Log.d("REPOSITORY", "id: $id")
+        return ricettaDao.getRicetta(id)
+    }
 
     fun inserisciRicetta(ricetta: Ricetta) {
         executor.execute {
