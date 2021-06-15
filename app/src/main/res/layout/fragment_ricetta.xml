@@ -12,12 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">-->
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/immagine_ricetta"
         android:layout_width="match_parent"
         android:layout_height="280dp"
         app:srcCompat="@drawable/tortellini"
-        android:contentDescription="@string/foto_ricetta" />
+        android:contentDescription="@string/foto_ricetta" /> -->
 
     <TextView
         android:id="@+id/nome_ricetta"

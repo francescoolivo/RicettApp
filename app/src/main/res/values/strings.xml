@@ -31,8 +31,8 @@
         <item name="dicembre" type="integer">12</item>
     </string-array>
     <string-array name="unita_tempo">
-        <item name="ore" type="string">h</item>
         <item name="minuti" type="string">m</item>
+        <item name="ore" type="string">h</item>
     </string-array>
 
 

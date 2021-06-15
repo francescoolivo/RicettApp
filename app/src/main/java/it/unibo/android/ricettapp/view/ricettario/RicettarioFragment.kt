@@ -49,7 +49,6 @@ class RicettarioFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -71,8 +70,6 @@ class RicettarioFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.nuova_ricetta -> {
-                //callbacks?.creaRicetta()
-
                 startForResult.launch(Intent(this.requireContext(), AggiuntaRicettaActivity::class.java))
                 true
             }
